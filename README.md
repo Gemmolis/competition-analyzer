@@ -33,47 +33,51 @@
 
 ## 🏗️ Архитектура
 
-┌─────────────────────────────────────────────────────────┐
-│ Frontend (Web UI) + Desktop (PyQt6) │
-└─────────────────────┬───────────────────────────────────┘
-│ HTTP
-┌─────────────────────▼───────────────────────────────────┐
-│ Backend (FastAPI) │
-├─────────────────────────────────────────────────────────┤
-│ /analyze_text → GigaChat-2-Pro │
-│ /analyze_image → GPT-4o (ProxyAPI) │
-│ /analyze_pdf → pdfplumber + GigaChat │
-│ /parse_demo → Selenium + GigaChat │
-│ /history → JSON-файл │
-└─────────────────────────────────────────────────────────┘
-
+┌─────────────────────────────────────────────────────────────┐
+│              Frontend (Web UI) + Desktop (PyQt6)           │
+└──────────────────────────┬──────────────────────────────────┘
+                           │ HTTP
+┌──────────────────────────▼──────────────────────────────────┐
+│                       Backend (FastAPI)                      │
+├─────────────────────────────────────────────────────────────┤
+│ /analyze_text  → GigaChat-2-Pro                             │
+│ /analyze_image → GPT-4o (ProxyAPI)                         │
+│ /analyze_pdf   → pdfplumber + GigaChat                     │
+│ /parse_demo    → Selenium + GigaChat                       │
+│ /history       → JSON-файл                                 │
+└─────────────────────────────────────────────────────────────┘
 ## 📁 Структура проекта
 
 competition-analyzer/
 ├── backend/
-│ ├── main.py # FastAPI-приложение
-│ ├── config.py # Настройки + логирование
-│ ├── models/schemas.py # Pydantic-модели
-│ └── services/
-│ ├── gigachat_service.py # GigaChat (текст, PDF)
-│ ├── vision_service.py # GPT-4o Vision (картинки)
-│ ├── parser_service.py # Selenium-парсер
-│ └── history_service.py # История
-├── frontend/ # Веб-интерфейс
-│ ├── index.html
-│ ├── styles.css
-│ └── app.js
-├── desktop/ # PyQt6-приложение
-│ ├── main.py
-│ ├── api_client.py
-│ ├── styles.py
-│ └── build.py # Сборка .exe
-├── data/ # Данные конкурентов
-│ ├── artem/
-│ ├── stas/
-│ ├── vasil/
-│ └── borisova/
-├── .env.example # Шаблон переменных
+│   ├── main.py                    # FastAPI-приложение
+│   ├── config.py                  # Настройки + логирование
+│   ├── models/
+│   │   └── schemas.py             # Pydantic-модели
+│   └── services/
+│       ├── gigachat_service.py     # GigaChat (текст, PDF)
+│       ├── vision_service.py      # GPT-4o Vision (картинки)
+│       ├── parser_service.py      # Selenium-парсер
+│       └── history_service.py     # История
+│
+├── frontend/                       # Веб-интерфейс
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
+│
+├── desktop/                        # PyQt6-приложение
+│   ├── main.py
+│   ├── api_client.py
+│   ├── styles.py
+│   └── build.py                    # Сборка .exe
+│
+├── data/                           # Данные конкурентов
+│   ├── artem/
+│   ├── stas/
+│   ├── vasil/
+│   └── borisova/
+│
+├── .env.example                    # Шаблон переменных
 ├── requirements.txt
 └── README.md
 
