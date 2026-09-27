@@ -7,6 +7,7 @@ __pycache__/
 venv/
 ENV/
 env/
+.env
 
 # IDE
 .idea/
@@ -20,3 +21,26 @@ build/
 # OS junk
 .DS_Store
 Thumbs.db
+
+
+#Python
+pycache/
+*.pyc
+*.pyo
+*.pyd
+
+#Build artifacts
+desktop/build/
+desktop/dist/
+*.spec
+data/
+
+#IDE
+.vscode/
+.idea/
+
+#OS
+.DS_Store
+Thumbs.db
+# Runtime data (создаётся автоматически)
+history.json

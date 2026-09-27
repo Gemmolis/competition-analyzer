@@ -45,9 +45,17 @@ class Settings(BaseSettings):
     # ProxyAPI (OpenAI-совместимый)
     proxy_api_key: str = os.getenv("PROXY_API_KEY", "")
     proxy_api_base_url: str = "https://api.proxyapi.ru/openai/v1"
-    openai_model: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
-    openai_vision_model: str = os.getenv("OPENAI_VISION_MODEL", "gpt-4o-mini")
+    # openai_model: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    # openai_vision_model: str = os.getenv("OPENAI_VISION_MODEL", "gpt-4o-mini")
     
+    # GigaChat
+    gigachat_credentials: str = os.getenv("GIGACHAT_CREDENTIALS", "")
+    gigachat_client_id: str = os.getenv("GIGACHAT_CLIENT_ID", "")
+    gigachat_client_secret: str = os.getenv("GIGACHAT_CLIENT_SECRET", "")
+    gigachat_scope: str = os.getenv("GIGACHAT_SCOPE", "GIGACHAT_API_PERS")
+    gigachat_model: str = os.getenv("GIGACHAT_MODEL", "GigaChat-Pro")
+
+
     # API
     api_host: str = "0.0.0.0"
     api_port: int = 8000
